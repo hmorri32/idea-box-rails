@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Idea, type: :model do
+  before :each { @category = build(:category) }
+
   it 'should have a quality and it should default to 0' do
     idea = Idea.new
     expect(idea.quality).to eq(0)
@@ -16,8 +18,7 @@ RSpec.describe Idea, type: :model do
     end
 
     it 'should be valid given all params' do
-      category = Category.create(title: 'cool')
-      idea     = Idea.new(title: 'cool idea', body: 'totally', category: category)
+      idea = Idea.new(title: 'cool idea', body: 'totally', category: @category)
       expect(idea).to be_valid
     end
   end
