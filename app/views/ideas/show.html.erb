@@ -2,5 +2,5 @@
 <%= @idea.body %>
 <%= @idea.category.title %>
 
-<%= link_to "Delete", idea_path(@idea), method: :delete %>
-<%= link_to "Edit",   edit_idea_path(@idea) %>
+<%= link_to "Delete", category_idea_path(@idea), method: :delete %>
+<%= link_to "Edit",   edit_category_idea_path(@idea) %>

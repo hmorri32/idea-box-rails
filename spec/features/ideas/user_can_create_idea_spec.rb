@@ -4,9 +4,10 @@ describe "User creates a new Idea" do
   before { @categories = create_list(:category, 5) }
 
   scenario "a user can create a new idea" do
-    category = build(:category)
+    category    = build(:category)
+    category.id = 1
 
-    visit new_idea_path
+    visit new_category_idea_path(category)
 
     fill_in "idea[title]", with: 'cool idea'
     fill_in "idea[body]",  with: 'pls work'
@@ -16,7 +17,7 @@ describe "User creates a new Idea" do
     end
     click_button "Create Idea"
 
-    expect(current_path).to eq("/ideas/#{Idea.last.id}")
+    expect(current_path).to eq("/categories/#{category.id}/ideas/#{Idea.last.id}")
     expect(page).to have_content("cool idea")
     expect(page).to have_content("pls work")
     expect(page).to have_content @categories.first.title

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
   root      :to => "ideas#index"
-  resources :ideas
+  resources :categories do
+    resources :ideas
+  end
 end
