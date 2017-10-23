@@ -6,7 +6,7 @@ FactoryBot.define do
 
     factory :category_with_ideas do
       after(:create) do |category|
-        ideas = create_list(:idea_with_company, 10)
+        ideas = create_list(:idea_with_category, 10)
         category.ideas = ideas
       end
     end
