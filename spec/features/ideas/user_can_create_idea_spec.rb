@@ -15,5 +15,10 @@ describe "User creates a new Idea" do
       find("option[value='1']").select_option
     end
     click_button "Create Idea"
+
+    expect(current_path).to eq("/ideas/#{Idea.last.id}")
+    expect(page).to have_content("cool idea")
+    expect(page).to have_content("pls work")
+    expect(page).to have_content @categories.first.title
   end
 end
