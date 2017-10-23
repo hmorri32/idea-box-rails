@@ -1,5 +1,5 @@
 class IdeasController < ApplicationController
-  before_action :set_idea, only: [:show, :destroy]
+  before_action :set_idea, only: [:show, :destroy, :edit, :update]
 
   def index
     @ideas = Idea.all
@@ -7,6 +7,10 @@ class IdeasController < ApplicationController
 
   def new
     @idea = Idea.new
+  end
+
+  def edit
+
   end
 
   def show
@@ -18,6 +22,15 @@ class IdeasController < ApplicationController
       redirect_to idea_path(@idea)
     else
       render :new
+    end
+  end
+
+  def update
+    @idea.update(idea_params)
+    if @idea.save
+      redirect_to idea_path(@idea)
+    else
+      render :edit
     end
   end
 
