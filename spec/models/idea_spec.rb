@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Idea, type: :model do  
+RSpec.describe Idea, type: :model do
   it 'should have a quality and it should default to 0' do
     idea = Idea.new
     expect(idea.quality).to eq(0)
