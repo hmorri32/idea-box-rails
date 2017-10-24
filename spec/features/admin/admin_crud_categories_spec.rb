@@ -31,7 +31,6 @@ RSpec.feature "creating and deleting categories" do
 
     it "I am able to delete a category" do
       #TODO TEST ALL DIS CRUD!
-      
     end
   end
 
