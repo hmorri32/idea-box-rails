@@ -50,6 +50,5 @@ describe "user actions" do
 
     click_on "Log Out"
     expect(current_path).to eq(root_path)
-    expect(page).to_not have_content("Welcome, Django")
   end
 end
