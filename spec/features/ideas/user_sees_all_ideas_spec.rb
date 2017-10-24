@@ -7,7 +7,7 @@ RSpec.feature "user sees all ideas" do
   }
 
   scenario "user visits index and sees all ideas" do
-    visit '/'
+    visit category_ideas_path(@category)
 
     expect(page).to have_content(@ideas.first.title)
     expect(page).to have_content(@ideas.first.body)
