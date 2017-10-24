@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe "A user can create an account" do
+describe "user actions" do
   scenario 'user sees link to create account' do
     visit '/'
     click_on "Create Account"
@@ -13,8 +13,6 @@ describe "A user can create an account" do
 
     expect(page).to have_content("Welcome, Django")
     expect(page).to have_link("Log Out")
-    # click_on "Log Out"
-    # expect(current_path).to eq(root_path)
   end
 
   scenario "a registered user can log in" do
@@ -22,9 +20,36 @@ describe "A user can create an account" do
     click_on "Log In"
 
     expect(current_path).to eq(login_path)
+    user = User.create(username: 'Django', password: 'cool')
+
     fill_in "session[username]", with: user.username
     fill_in "session[password]", with: user.password
 
     click_on 'Log In'
+
+    expect(current_path).to eq(user_path(user))
+    expect(page).to have_content("Welcome, Django")
+  end
+
+  scenario 'a logged in user can log out' do
+    visit '/'
+    click_on "Log In"
+
+    expect(current_path).to eq(login_path)
+
+    user = User.create(username: 'Django', password: 'cool')
+
+    fill_in "session[username]", with: user.username
+    fill_in "session[password]", with: user.password
+
+    click_on 'Log In'
+
+    expect(current_path).to eq(user_path(user))
+    expect(page).to have_content("Welcome, Django")
+    expect(page).to have_link("Log Out")
+
+    click_on "Log Out"
+    expect(current_path).to eq(root_path)
+    expect(page).to_not have_content("Welcome, Django")
   end
 end
