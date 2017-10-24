@@ -12,5 +12,5 @@ Rails.application.routes.draw do
   post   '/login',  to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
 
-  namespace :admin { resources :categories, only: ['index'] }
+  namespace :admin { resources :categories }
 end
