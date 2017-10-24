@@ -1,7 +1,7 @@
 class Admin::BaseController < ApplicationController
-  before_action :current_admin
+  before_action :require_admin
 
-  def current_admin
-    render file: 'public/404.html', status: 404, layout: false unless current_user.admin?
+  def require_admin
+    render file: 'public/404.html', status: 404, layout: false unless current_admin?
   end
 end
