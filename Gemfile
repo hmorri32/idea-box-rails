@@ -18,6 +18,7 @@ gem "paperclip"
 
 
 group :development, :test do
+  gem "paperclip"
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'capybara',         '~> 2.13'
   gem 'shoulda-matchers', '~> 3.1'

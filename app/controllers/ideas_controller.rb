@@ -1,9 +1,9 @@
 class IdeasController < ApplicationController
   before_action :set_idea, only: [:show, :destroy, :edit, :update]
+  before_action :set_ideas, only: [:index]
   before_action :set_category, only: [:new, :create, :edit, :update]
 
   def index
-    @ideas = Idea.all
   end
 
   def new
@@ -40,6 +40,10 @@ class IdeasController < ApplicationController
   end
 
   private
+
+  def set_ideas
+    @ideas = Idea.all
+  end
 
   def set_idea
     @idea = Idea.find(params[:id])
