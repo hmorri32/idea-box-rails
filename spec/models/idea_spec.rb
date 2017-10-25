@@ -24,7 +24,8 @@ RSpec.describe Idea, type: :model do
   end
 
   describe "relationships" do
-    it {should belong_to(:category)}
-    it {should respond_to(:category)}
+    it { should belong_to(:category)}
+    it { should respond_to(:category)}
+    it { should have_many(:images).through(:idea_images) }
   end
 end
