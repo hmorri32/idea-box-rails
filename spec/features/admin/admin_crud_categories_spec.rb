@@ -40,6 +40,20 @@ RSpec.feature "creating and deleting categories" do
 
       expect(page).to_not have_content("sweet category")
     end
+
+    it 'I am able to edit a category' do
+      category = Category.create(title: 'sweet category')
+      visit admin_categories_path
+      click_on 'Edit'
+
+      expect(current_path).to eq(edit_admin_category_path(category))
+
+      fill_in  "category[title]", with: 'Django'
+      click_on 'Update Category'
+
+      expect(current_path).to eq(admin_categories_path)
+      expect(page).to have_content("Django")
+    end
   end
 
   context "as a default user" do
