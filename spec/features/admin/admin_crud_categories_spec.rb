@@ -30,7 +30,15 @@ RSpec.feature "creating and deleting categories" do
     end
 
     it "I am able to delete a category" do
-      #TODO TEST ALL DIS CRUD!
+      category = Category.create(title: 'sweet category')
+
+      visit admin_categories_path
+
+      expect(page).to have_content("sweet category")
+
+      click_on "Delete"
+
+      expect(page).to_not have_content("sweet category")
     end
   end
 

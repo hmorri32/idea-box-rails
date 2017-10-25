@@ -21,6 +21,12 @@ class Admin::CategoriesController < Admin::BaseController
     @category = Category.find(params[:id])
   end
 
+  def destroy
+    @category = Category.find(params[:id])
+    @category.delete
+    redirect_to admin_categories_path
+  end
+
   private
 
   def category_params

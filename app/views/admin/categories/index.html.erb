@@ -2,4 +2,5 @@
 
 <% @categories.each do |category| %>
   <%= category.title %>
+  <%= link_to "Delete", admin_category_path(category), method: :delete %>
 <% end %>
