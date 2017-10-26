@@ -1,7 +1,6 @@
 class IdeasController < ApplicationController
   before_action :set_idea,  only: [:show, :destroy, :edit, :update]
   before_action :set_ideas, only: [:index]
-  # before_action :set_category, only: [:new,  :create,  :edit, :update]
 
   def index
   end
@@ -18,20 +17,12 @@ class IdeasController < ApplicationController
 
   def create
     @idea = current_user.ideas.new(idea_params)
-    if @idea.save
-      redirect_to user_idea_path(current_user, @idea)
-    else
-      render :new
-    end
+    @idea.save ? redirect_to(user_idea_path(current_user, @idea)) : render(:new)
   end
 
   def update
     @idea.update(idea_params)
-    if @idea.save
-      redirect_to user_idea_path(current_user, @idea)
-    else
-      render :edit
-    end
+    @idea.save ? redirect_to(user_idea_path(current_user, @idea)) : render(:edit)
   end
 
   def destroy
@@ -47,10 +38,6 @@ class IdeasController < ApplicationController
 
   def set_idea
     @idea = Idea.find(params[:id])
-  end
-
-  def set_category
-    @category = Category.find(params[:category_id])
   end
 
   def idea_params
