@@ -1,0 +1,7 @@
+<h1>Upload an Image</h1>
+
+<%= form_for [:admin, @image] do |f| %>
+  <%= f.label      :image, "Attach an Image" %><br />
+  <%= f.file_field :image  %>
+  <%= f.submit 'Upload Image' %>
+<% end %>
