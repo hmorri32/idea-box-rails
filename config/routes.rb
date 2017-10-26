@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
   # root      :to => "ideas#index"
   root "welcome#index"
-
-  resources :users, only: [:new, :create, :show]
+  # TODO REROUTE AND RETEST
+  resources :users, only: [:new, :create, :show] # do
+    #resources :ideas
+  #end
 
   resources :categories do
     resources :ideas

@@ -1,7 +1,7 @@
 class IdeasController < ApplicationController
-  before_action :set_idea, only: [:show, :destroy, :edit, :update]
-  before_action :set_ideas, only: [:index]
-  before_action :set_category, only: [:new, :create, :edit, :update]
+  before_action :set_idea,     only: [:show, :destroy, :edit, :update]
+  before_action :set_ideas,    only: [:index]
+  before_action :set_category, only: [:new,  :create,  :edit, :update]
 
   def index
   end
