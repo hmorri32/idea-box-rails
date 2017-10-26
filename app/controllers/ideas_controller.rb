@@ -1,8 +1,9 @@
 class IdeasController < ApplicationController
-  before_action :set_idea,  only: [:show, :destroy, :edit, :update]
-  before_action :set_ideas, only: [:index]
+  before_action :set_idea,  only: [:destroy, :edit, :update]
+  # before_action :set_ideas, only: [:index]
 
   def index
+    @ideas = current_user.ideas
   end
 
   def new
@@ -13,6 +14,7 @@ class IdeasController < ApplicationController
   end
 
   def show
+    @idea = current_user.ideas.find(params[:id])
   end
 
   def create
