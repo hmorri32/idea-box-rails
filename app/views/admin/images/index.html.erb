@@ -2,4 +2,6 @@
 
 <% @images.each do |image| %>
   <div class='image'><%= image_tag image.image.url %></div>
+  <%= link_to "edit",   edit_admin_image_path(image) %>
+  <%= link_to "delete", admin_image_path(image), method: :delete %>
 <% end %>
