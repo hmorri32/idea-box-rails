@@ -17,5 +17,17 @@ RSpec.feature "admin crud images" do
       expect(page).to have_content("Upload an Image")
       expect(page).to have_button("Upload Image")
     end
+
+    it 'I can upload an image to the DB' do
+      visit new_admin_image_path
+
+      attach_file('Image', File.join(Rails.root, '/spec/assets_helper/forest.jpg'))
+
+      click_on "Upload Image"
+
+      expect(current_path).to eq(admin_images_path)
+      expect(page).to have_content("All Images")
+      expect(page).to have_css('.image')
+    end
   end
 end
