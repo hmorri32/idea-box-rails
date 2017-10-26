@@ -1,4 +1,10 @@
 FactoryBot.define do
+  factory :user do
+    sequence :username do
+      Faker::Name.title
+    end
+  end
+
   factory :category do
     sequence :title do
       Faker::Name.title
