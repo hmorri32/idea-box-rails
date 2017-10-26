@@ -11,6 +11,7 @@ RSpec.feature 'delete Idea' do
 
   scenario "user deletes an idea" do
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(default_user)
+
     expect(@ideas.count).to eq(10)
 
     visit user_idea_path(default_user, @delete_me)
