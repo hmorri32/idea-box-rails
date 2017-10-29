@@ -10,20 +10,24 @@ RSpec.feature "User edits an idea" do
   }
 
   scenario "a user updates an idea" do
+    category = build(:category)
+    idea = default_user.ideas.create(title: 'cool idea', body: 'whatever', category: category)
+    idea2 = default_user.ideas.create(title: 'another one', body: 'plz', category: category)
+
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(default_user)
 
     new_title = Faker::Name.title
     new_body  = Faker::Lorem.sentence
 
-    visit user_idea_path(default_user, @update_me)
+    visit user_idea_path(default_user, idea)
     click_on 'Edit'
 
     fill_in "idea[title]", with: new_title
     fill_in "idea[body]",  with: new_body
     click_on "Update Idea"
 
-    expect(current_path).to eq(user_idea_path(default_user, @update_me))
-    expect(page).to_not have_content(@update_me.title)
-    expect(page).to_not have_content(@update_me.body)
+    expect(current_path).to eq(user_idea_path(default_user, idea))
+    expect(page).to_not have_content(idea.title)
+    expect(page).to_not have_content(idea.body)
   end
 end
