@@ -8,5 +8,19 @@
   <%= f.label :category %>
   <%= f.collection_select :category_id, Category.all, :id, :title %>
 
+  <% if @idea.images.exists? %>
+    <% @idea.images.each do |image| %>
+    <%= image_tag image.image.url %>
+    <% end %>
+  <% end %>
+
+  <%= f.label "Image" %><br />
+  <%= f.collection_check_boxes :image_ids, @images, :id, :image_file_name do |b| %>
+    <div class="collection-check-box">
+      <%= b.check_box %>
+      <%= b.label %>
+    </div>
+  <% end %>
+
   <%= f.submit %>
 <% end %>

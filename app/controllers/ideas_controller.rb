@@ -9,9 +9,11 @@ class IdeasController < ApplicationController
 
   def new
     @idea = Idea.new
+    @images = Image.all
   end
 
   def edit
+    @images = Image.all
   end
 
   def show
@@ -45,6 +47,6 @@ class IdeasController < ApplicationController
   end
 
   def idea_params
-    params.require(:idea).permit(:title, :body, :category_id)
+    params.require(:idea).permit(:title, :body, :category_id, image_ids:[])
   end
 end
