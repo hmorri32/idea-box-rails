@@ -1,4 +1,4 @@
-<div class='admin-container'>
+<div class='ideas-container'>
   <h2><span>title:</span> <%= @idea.title %></h2>
   <h2><span>body:</span> <%= @idea.body %></h2>
   <h2><span>category:</span> <%= @idea.category.title %></h2>
@@ -10,6 +10,6 @@
     <% end %>
   <% end %>
   <%= link_to "All Ideas", user_path(current_user) %>
-  <%= link_to "Delete", user_idea_path(current_user, @idea), method: :delete%>
-  <%= link_to "Edit",   edit_user_idea_path(current_user, @idea) %>
+  <%= link_to "Delete",    user_idea_path(current_user, @idea), method: :delete%>
+  <%= link_to "Edit",      edit_user_idea_path(current_user, @idea) %>
 </div>
