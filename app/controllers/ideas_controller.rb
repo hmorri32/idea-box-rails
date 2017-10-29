@@ -4,7 +4,6 @@ class IdeasController < ApplicationController
 
   def index
     @ideas = current_user.ideas
-
   end
 
   def new
@@ -47,6 +46,6 @@ class IdeasController < ApplicationController
   end
 
   def idea_params
-    params.require(:idea).permit(:title, :body, :category_id, image_ids:[])
+    params.require(:idea).permit(:title, :body, :category_id, :quality, image_ids:[])
   end
 end

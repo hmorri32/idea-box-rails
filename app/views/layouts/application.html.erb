@@ -10,12 +10,18 @@
 
   <body>
     <section class="inputs-go-here">
-      <div class="input-h1"><h1>idea<span id="header-box-text">box</span></h1></div>
+      <div class="input-h1">
+        <% if current_user %>
+          <p><%= link_to 'idea', user_path(current_user) %><span id="header-box-text">box</span></p>
+        <% else %>
+          <p><%= link_to 'idea', root_path %><span id="header-box-text">box</span></p>
+        <% end %>
+      </div>
     </section>
     <% if !current_user %>
-    <%= render partial: 'welcome/index' %>
+      <%= render partial: 'welcome/index' %>
     <% else %>
-    <%= render partial: 'users/header' %>
+      <%= render partial: 'users/header' %>
     <% end %>
     <%= yield %>
   </body>
