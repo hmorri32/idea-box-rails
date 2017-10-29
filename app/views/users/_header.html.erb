@@ -1,0 +1,5 @@
+<div class='user-header'>
+    <h1>Welcome, <%= current_user.username %></h1>
+    <%= link_to 'Create Idea', new_user_idea_path(current_user) %>
+    <%= link_to 'Log Out', logout_path, method: :delete %>
+  </div>

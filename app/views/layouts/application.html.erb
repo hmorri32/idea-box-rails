@@ -9,6 +9,14 @@
   </head>
 
   <body>
+    <section class="inputs-go-here">
+      <div class="input-h1"><h1>idea<span id="header-box-text">box</span></h1></div>
+    </section>
+    <% if !current_user %>
+    <%= render partial: 'welcome/index' %>
+    <% else %>
+    <%= render partial: 'users/header' %>
+    <% end %>
     <%= yield %>
   </body>
 </html>
