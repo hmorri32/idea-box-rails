@@ -92,4 +92,19 @@ span {
   a:hover {
     color: #6D6E71;
   }
+  span {
+    color: #6D6E71;
+    font-size: 1.5em;
+  }
+  h2 {
+    color: #00a79d;
+  }
+}
+
+.show-container {
+  @extend .ideas-container;
+  a {
+    font-size: 2em;
+    font-weight: 700;
+  }
 }
