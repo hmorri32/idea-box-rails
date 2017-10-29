@@ -23,8 +23,10 @@
     <% end %>
     <% if !current_user %>
       <%= render partial: 'welcome/index' %>
+    <% elsif %>
+    <%= render partial: 'admin/header' %>
     <% else %>
-      <%= render partial: 'users/header' %>
+    <%= render partial: 'users/header' %>
     <% end %>
     <%= yield %>
   </body>

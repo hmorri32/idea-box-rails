@@ -1,7 +1,10 @@
-<h1>All Images</h1>
-
-<% @images.each do |image| %>
-  <div class='image'><%= image_tag image.image.url %></div>
-  <%= link_to "edit",   edit_admin_image_path(image) %>
-  <%= link_to "delete", admin_image_path(image), method: :delete %>
-<% end %>
+<div class='show-container'>
+  <div>
+    <h1><%= link_to "create image", new_admin_image_path %></h1>
+    <% @images.each do |image| %>
+      <div class='image'><%= image_tag image.image.url %></div>
+      <%= link_to "edit",   edit_admin_image_path(image) %>
+      <%= link_to "delete", admin_image_path(image), method: :delete %>
+    <% end %>
+  </div>
+</div>

@@ -116,6 +116,27 @@ span {
   }
 }
 
+.admin-container {
+  color: #6D6E71;
+  div {
+    display: flex;
+    align-items: baseline;
+    justify-content: flex-start;
+    width: 50%;
+    margin: 20px;
+    h2 {
+      font-size: 2em;
+    }
+    h2, a {
+      padding: 10px;
+      text-decoration: none;
+    }
+    a {
+      color: #00a79d;
+    }
+  }
+}
+
 .form-container {
   display         : flex;
   width           : 800px;

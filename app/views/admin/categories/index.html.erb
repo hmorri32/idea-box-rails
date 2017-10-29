@@ -1,7 +1,11 @@
-<h1>Admin Categories</h1>
+<div class='admin-container'>
+  <h1>Admin Categories</h1>
+  <% @categories.each do |category| %>
+  <div>
+    <h2><%= category.title %></h2>
+    <%= link_to "Delete", admin_category_path(category), method: :delete %>
+    <%= link_to "Edit",   edit_admin_category_path(category) %>
 
-<% @categories.each do |category| %>
-  <%= category.title %>
-  <%= link_to "Delete", admin_category_path(category), method: :delete %>
-  <%= link_to "Edit",   edit_admin_category_path(category) %>
-<% end %>
+  </div>
+  <% end %>
+</div>
