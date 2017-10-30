@@ -26,7 +26,6 @@ RSpec.feature "admin crud images" do
       click_on "Upload Image"
 
       expect(current_path).to eq(admin_images_path)
-      expect(page).to have_content("All Images")
       expect(page).to have_css('.image')
     end
 

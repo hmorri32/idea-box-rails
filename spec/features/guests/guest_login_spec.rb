@@ -17,7 +17,10 @@ describe "user actions" do
 
   scenario "a registered user can log in" do
     visit '/'
-    click_on "Log In"
+
+    within('.welcome-partial') do
+      click_on "Log In"
+    end
 
     expect(current_path).to eq(login_path)
     user = User.create(username: 'Django', password: 'cool')
@@ -25,7 +28,9 @@ describe "user actions" do
     fill_in "session[username]", with: user.username
     fill_in "session[password]", with: user.password
 
-    click_on 'Log In'
+    within('.form-container') do
+      click_on "Log In"
+    end
 
     expect(current_path).to eq(user_path(user))
     expect(page).to have_content("Welcome, Django")
@@ -33,7 +38,10 @@ describe "user actions" do
 
   scenario 'a logged in user can log out' do
     visit '/'
-    click_on "Log In"
+
+    within('.welcome-partial') do
+      click_on "Log In"
+    end
 
     expect(current_path).to eq(login_path)
 
@@ -42,7 +50,9 @@ describe "user actions" do
     fill_in "session[username]", with: user.username
     fill_in "session[password]", with: user.password
 
-    click_on 'Log In'
+    within('.form-container') do
+      click_on "Log In"
+    end
 
     expect(current_path).to eq(user_path(user))
     expect(page).to have_content("Welcome, Django")
