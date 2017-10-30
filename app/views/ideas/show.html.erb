@@ -3,8 +3,8 @@
   <h2><span>body:</span> <%= @idea.body %></h2>
   <h2><span>category:</span> <%= @idea.category.title %></h2>
   <h2><span>quality:</span> <%= @idea.quality %></h2>
-  <h2><span>images:</span></h2>
   <% if @idea.images.exists? %>
+  <h2><span>images:</span></h2>
     <% @idea.images.each do |image| %>
       <%= image_tag image.image.url(:medium) %>
     <% end %>
