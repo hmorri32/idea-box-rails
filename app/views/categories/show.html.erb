@@ -1,7 +1,9 @@
 <div class='ideas-container'>
   <h1></h1>
-  <h2>All Ideas in: <span><%= @category.title %></span></h2>
+  <h2>All Your Ideas in: <span><%= @category.title %></span></h2>
   <% @category.ideas.each do |idea| %>
-    <h2><%= link_to  idea.title, user_idea_path(current_user, idea) %></h2>
+    <% if  current_user.ideas.include?(idea) %>
+      <h2><%= link_to  idea.title, user_idea_path(current_user, idea) %></h2>
+    <% end %>
   <% end %>
 </div>
