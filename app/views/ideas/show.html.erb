@@ -1,7 +1,8 @@
 <div class='ideas-container'>
   <h2><span>title:</span> <%= @idea.title %></h2>
   <h2><span>body:</span> <%= @idea.body %></h2>
-  <h2><span>category:</span> <%= @idea.category.title %></h2>
+  <h2><span>category:</span> <%= link_to @idea.category.title, category_path(@idea.category) %></h2>
+
   <h2><span>quality:</span> <%= @idea.quality %></h2>
   <% if @idea.images.exists? %>
   <h2><span>images:</span></h2>

@@ -1,4 +1,5 @@
 class CategoriesController < ApplicationController
-  # TODO - RENDER CATEGORIES SHOW PAGE WITH LINK TO IDEA UNDER SAID CATEGORY
-  # AND ALSO FIX THE ROUTES
+  def show
+    @category = Category.find(params[:id])
+  end
 end
